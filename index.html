@@ -23,13 +23,13 @@
             padding: 20px;
             display: flex;
             justify-content: center;
-            align-items: center;
             min-height: 100vh;
         }
         .container {
             width: 100%;
-            max-width: 500px;
+            max-width: 550px;
             text-align: center;
+            padding-bottom: 30px;
         }
         header {
             background: var(--card-bg);
@@ -44,12 +44,12 @@
 
         .grid-menu {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 15px;
         }
         .card-link {
             background: var(--card-bg);
-            padding: 25px 15px;
+            padding: 22px 12px;
             border-radius: 16px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.04);
             text-decoration: none;
@@ -68,16 +68,16 @@
             border-color: var(--primary);
         }
         .icon {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
+            font-size: 2.5rem;
+            margin-bottom: 8px;
         }
         .title-card {
             font-weight: bold;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-main);
         }
         .desc-card {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             color: var(--text-muted);
             margin-top: 4px;
             text-align: center;
@@ -146,7 +146,7 @@
             <span class="desc-card">Gestão e Dados</span>
         </a>
 
-        <!-- Ícone 3: Estoque de Arame (ATUALIZADO COM O SEU LINK) -->
+        <!-- Ícone 3: Estoque de Arame -->
         <a href="https://script.google.com/macros/s/AKfycbxHBDRFtVQR0SVZVAXBM0K7AKjwaFtVMxBmxKs-hA2cdZTXbLzZdQa2fRDDYEJlXMYm/exec" target="_blank" class="card-link">
             <span class="icon">📦</span>
             <span class="title-card">Estoque de Arame</span>
@@ -154,7 +154,7 @@
         </a>
 
         <!-- Ícone 4: Planilha Base -->
-        <a href="COLOQUE_AQUI_O_LINK_DA_SUA_PLANILHA_SHEETS" target="_blank" class="card-link">
+        <a href="#" target="_blank" class="card-link">
             <span class="icon">📑</span>
             <span class="title-card">Planilha Base</span>
             <span class="desc-card">Visualização em Tabela</span>
