@@ -87,40 +87,6 @@
             font-size: 0.75rem;
             color: var(--text-muted);
         }
-
-        /* Estilo do Modal Informativo */
-        .modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 100;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        .modal-content {
-            background: #fff;
-            padding: 25px;
-            border-radius: 16px;
-            max-width: 380px;
-            width: 100%;
-            text-align: left;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-        .modal-content h3 { margin-top: 0; color: var(--primary); font-size: 1.2rem; }
-        .modal-content p { font-size: 0.85rem; color: #334155; line-height: 1.4; }
-        .close-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            float: right;
-            margin-top: 15px;
-        }
     </style>
 </head>
 <body>
@@ -167,43 +133,18 @@
             <span class="desc-card">Manuais e Padrões</span>
         </a>
 
-        <!-- Ícone 6: Informações do Departamento -->
-        <div onclick="abrirModalInfo()" class="card-link">
+        <!-- Ícone 6: Informações do Departamento (Integrado com o seu Dashboard) -->
+        <a href="https://script.google.com/macros/s/AKfycbyoZl-3luhdQT5aruMumjTuiNWpmG9efAXvQVM4GqKfO6AikgyVi1U6W4O74ZohMg38/exec" class="card-link">
             <span class="icon">ℹ️</span>
             <span class="title-card">Info Departamento</span>
-            <span class="desc-card">Diretrizes e Setor</span>
-        </div>
+            <span class="desc-card">Dashboard e Indicadores</span>
+        </a>
     </div>
 
     <footer>
         Painel Operacional
     </footer>
 </div>
-
-<!-- Modal de Informações do Departamento -->
-<div id="infoModal" class="modal">
-    <div class="modal-content">
-        <h3>Informações do Departamento</h3>
-        <p><strong>Escopo:</strong> Coordenação de turnos, gestão operacional, controle de insumos e rotinas de acompanhamento.</p>
-        <p>Utilize os atalhos deste portal para acesso rápido às ferramentas de lançamento e indicadores.</p>
-        <button onclick="fecharModalInfo()" class="close-btn">Fechar</button>
-    </div>
-</div>
-
-<script>
-    function abrirModalInfo() {
-        document.getElementById('infoModal').style.display = 'flex';
-    }
-    function fecharModalInfo() {
-        document.getElementById('infoModal').style.display = 'none';
-    }
-    window.onclick = function(event) {
-        let modal = document.getElementById('infoModal');
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    }
-</script>
 
 </body>
 </html>
