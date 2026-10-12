@@ -60,6 +60,7 @@
             justify-content: center;
             transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
             border: 1px solid var(--border);
+            cursor: pointer;
         }
         .card-link:active, .card-link:hover {
             transform: translateY(-3px);
@@ -86,6 +87,40 @@
             font-size: 0.75rem;
             color: var(--text-muted);
         }
+
+        /* Estilo do Modal Informativo */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .modal-content {
+            background: #fff;
+            padding: 25px;
+            border-radius: 16px;
+            max-width: 380px;
+            width: 100%;
+            text-align: left;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        .modal-content h3 { margin-top: 0; color: var(--primary); font-size: 1.2rem; }
+        .modal-content p { font-size: 0.85rem; color: #334155; line-height: 1.4; }
+        .close-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            float: right;
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
@@ -97,39 +132,79 @@
     </header>
 
     <div class="grid-menu">
-        <!-- Ícone 1: Sempre Alerta (Cole o link do Web App do Google Sheets aqui) -->
+        <!-- Ícone 1: Sempre Alerta -->
         <a href="https://script.google.com/macros/s/AKfycbw7fitlXt1ZrrWdImVfIlG3hmusU5QaOhMKRekn1DhefFOLdK7lWU8dTHY6MUKDXoQm/exec" target="_blank" class="card-link">
             <span class="icon">🔔</span>
             <span class="title-card">Sempre Alerta</span>
             <span class="desc-card">Acompanhamento e Lançamentos</span>
         </a>
 
-       <!-- Ícone 2: Nova Ferramenta / Matricula/Workday -->
-<a href="https://script.google.com/macros/s/AKfycby_xXjARC2jM1KFPR_XTJeq8IiDgtwCezinqdzFcnhgb8J5F1ubF6riO6sEaofLh8aO/exec" target="_blank" class="card-link">
-    <span class="icon">📊</span>
-    <span class="title-card">Matricula/Workday/ Outro Sistema</span>
-    <span class="desc-card">Gestão e Dados</span>
-</a>
+        <!-- Ícone 2: Matricula/Workday -->
+        <a href="https://script.google.com/macros/s/AKfycby_xXjARC2jM1KFPR_XTJeq8IiDgtwCezinqdzFcnhgb8J5F1ubF6riO6sEaofLh8aO/exec" target="_blank" class="card-link">
+            <span class="icon">📊</span>
+            <span class="title-card">Matricula/Workday</span>
+            <span class="desc-card">Gestão e Dados</span>
+        </a>
 
-        <!-- Ícone 3: Planilha Base -->
+        <!-- Ícone 3: Estoque de Arame (ATUALIZADO COM O SEU LINK) -->
+        <a href="https://script.google.com/macros/s/AKfycbxHBDRFtVQR0SVZVAXBM0K7AKjwaFtVMxBmxKs-hA2cdZTXbLzZdQa2fRDDYEJlXMYm/exec" target="_blank" class="card-link">
+            <span class="icon">📦</span>
+            <span class="title-card">Estoque de Arame</span>
+            <span class="desc-card">Bobinas 3mm e 2mm</span>
+        </a>
+
+        <!-- Ícone 4: Planilha Base -->
         <a href="COLOQUE_AQUI_O_LINK_DA_SUA_PLANILHA_SHEETS" target="_blank" class="card-link">
             <span class="icon">📑</span>
             <span class="title-card">Planilha Base</span>
             <span class="desc-card">Visualização em Tabela</span>
         </a>
 
-        <!-- Ícone 4: Treinamentos -->
-        <a href="#" target="_blank" class="card-link">
+        <!-- Ícone 5: Treinamentos -->
+        <a href="https://fabioperreirabr.github.io/Treinamentos/" target="_blank" class="card-link">
             <span class="icon">🛠️</span>
             <span class="title-card">Treinamentos</span>
             <span class="desc-card">Manuais e Padrões (MPO)</span>
         </a>
+
+        <!-- Ícone 6: Informações do Departamento -->
+        <div onclick="abrirModalInfo()" class="card-link">
+            <span class="icon">ℹ️</span>
+            <span class="title-card">Info Departamento</span>
+            <span class="desc-card">Diretrizes e Setor</span>
+        </div>
     </div>
 
     <footer>
         Bracell • Indústria de Celulose e Papel
     </footer>
 </div>
+
+<!-- Modal de Informações do Departamento -->
+<div id="infoModal" class="modal">
+    <div class="modal-content">
+        <h3>Informações do Departamento</h3>
+        <p><strong>Setor:</strong> Processo de Secagem e Fabricação (Bracell).</p>
+        <p><strong>Escopo:</strong> Coordenação de turnos, gestão operacional, controle de insumos e padronização de rotinas de segurança.</p>
+        <p>Utilize os atalhos deste portal para acesso rápido às ferramentas de lançamento e indicadores dos turnos.</p>
+        <button onclick="fecharModalInfo()" class="close-btn">Fechar</button>
+    </div>
+</div>
+
+<script>
+    function abrirModalInfo() {
+        document.getElementById('infoModal').style.display = 'flex';
+    }
+    function fecharModalInfo() {
+        document.getElementById('infoModal').style.display = 'none';
+    }
+    window.onclick = function(event) {
+        let modal = document.getElementById('infoModal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+</script>
 
 </body>
 </html>
